@@ -1,102 +1,1145 @@
-.container{
-	width:80%;
-	margin:0 auto;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/*----------NAVBAR------*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.container:after {
-	content:'';
-	display: block;
-	clear: both;
+body,
+button {
+  font-family: "Poppins", sans-serif;
 }
 
-.top {
-	padding:15px 0;
-	background-color: #06BBD4 } 
-
-.container:after {
-	content:'';
-	display: block;
-	clear: both;
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #485461;
+  background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+  overflow-x: hidden;
+  transform-style: preserve-3d;
 }
 
-header ul {
-	float: right;
-}
-header ul li {
-	display: inline-block;
-}
-header ul li a {
-	padding:25px 20px;
-	display: inline-block;
-}
-header ul li a:hover {
-	background-color:  #06BBD4;
-	color: #fff;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 3rem;
 }
 
-.active {
-	background-color:  #06BBD4;
-	color: #fff;
+.job-list {
+  background-color: whitesmoke;
+  padding: 50px;
 }
 
-section {
-	padding:25px 0;
-}
-section h3 {
-	text-align: center;
-	padding:20px 0;
-	color:  #06BBD4;
-	margin-bottom: 20px;
+
+.job-list img {
+  display: block;
+  margin: 0 auto;
+  max-width: 30%;
+  margin-bottom: 10px;
 }
 
-.label {
-	background-color: #06BBD4;
-	color: #fff;
+.job-list p,
+.job-list strong {
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
-.main-artikel {
-    text-align: center;
-}
-
-.main-content {
+.menu {
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 }
 
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
-img {vertical-align: middle;}
+.logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 4rem;
+}
 
-/* Slideshow container */
-.slideshow-container {
-    max-width: 100%;
+.logo span {
+  font-weight: 300;
+}
+
+.hamburger-menu {
+  height: 4rem;
+  width: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 1.9rem;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: #eee;
+  transition: 0.5s;
   position: relative;
 }
 
-.slideshow-container img {
-    width: 100%; /* Adjust the width as needed */
-    height: 500px; /* Keeps the aspect ratio */
-    max-height: 500px;
-    object-fit: cover; 
+.bar:before,
+.bar:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #eee;
+  transition: 0.5s;
 }
 
-.active {
-  background-color: #717171;
+.bar:before {
+  transform: translateY(-9px);
 }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+.bar:after {
+  transform: translateY(9px);
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+.main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  overflow: hidden;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: 0.5s;
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+header {
+  min-height: 100vh;
+  width: 100%;
+  background: url("img/") no-repeat top center / cover;
+  position: relative;
 }
 
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 51, 59, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  max-width: 35rem;
+  text-align: center;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.8rem;
+  background-color: #1179e7;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container.active .bar {
+  transform: rotate(360deg);
+  background-color: transparent;
+}
+
+.container.active .bar:before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar:after {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.container.active .main {
+  animation: main-animation 0.5s ease;
+  cursor: pointer;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+
+@keyframes main-animation {
+  from {
+    transform: translate(0);
+  }
+
+  to {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+
+.links {
+  position: absolute;
+  width: 30%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.links a {
+  text-decoration: none;
+  color: #eee;
+  padding: 0.7rem 0;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: hide 0.5s forwards ease;
+}
+
+.links a:hover {
+  color: #fff;
+}
+
+.container.active .links a {
+  animation: appear 0.5s forwards ease var(--i);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: 0.5s;
+  background-color: white;
+}
+
+.shadow.one {
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.shadow.two {
+  z-index: -2;
+  opacity: 0.1;
+}
+
+.container.active .shadow.one {
+  animation: shadow-one 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+
+@keyframes shadow-one {
+  0% {
+    transform: translate(0);
+  }
+
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+}
+
+.container.active .shadow.two {
+  animation: shadow-two 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes shadow-two {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+}
+
+.container.active .main:hover + .shadow.one {
+  transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+}
+
+.container.active .main:hover {
+  transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
+}
+
+footer {
+  background: linear-gradient(to right, #48928785, #ffffff, hwb(0 9% 91% / 0.493));
+  padding: 20px;
+  color: #333;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer nav ul li {
+  margin-right: 10px;
+}
+
+footer nav ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+
+
+.mountain1{
+    position: absolute;
+    bottom: -150px;
+    width: 2000px;
+    right: 0;
+    z-index: 19;
+}
+
+.person{
+    position: absolute;
+    width: 750px;
+    bottom: -150px;
+    left: -70px;
+    z-index: 20;
+}
+
+.mountain2{
+    position: absolute;
+    width: 1350px;
+    bottom: -130px;
+    left: 0;
+    z-index: 18;
+}
+
+.mountain3{
+    position: absolute;
+    width: 1300px;
+    bottom: 150px;
+    right: 0;
+    z-index: 17;
+}
+
+.sky{
+    position: absolute;
+    width: 2000px;
+    bottom: 100px;
+    right: 0px;
+}
+
+.gambar-langit{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.logo{
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo span{
+    font-weight: 300;
+}
+
+.hamburger-menu{
+    width: 1.55rem;
+    height: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bar{
+    position: relative;
+    width: 1.2rem; 
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.bar:before, .bar:after{
+    content: '';
+    position: absolute;
+    width: 1.55rem;
+    height: 3px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.bar:before{
+    transform: translateY(-8px);
+}
+
+.bar:after{
+    transform: translateY(8px);
+}
+
+.big-title{
+    position: absolute;
+    z-index: 30;
+    line-height: 4rem;
+    top: calc(50% - 2rem);
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.kolom-about {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 19px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.informasi-pribadi {
+  height: 400px;
+  padding: 025px;
+  text-align: center;
+  background-color: #eee;
+  margin-bottom: 20px
+}
+
+.visi-misi {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #eee;
+}
+
+.about-section h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+section{
+    width: 100%;
+    background-color: #151515;
+    position: relative;
+}
+
+section .container{
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.gambar-langit{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.picture-gallery {
+  text-align: center;
+}
+
+.picture-gallery h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+.project {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.projects img {
+  width: 20%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.project h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.project p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skills ul, .achievements ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.skills, .achievements {
+  margin-bottom: 20px;
+}
+
+.skills h2, .achievements h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.skills ul, .achievements ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.skills li, .achievements li {
+  margin-bottom: 5px;
+
+}
+
+section img{
+    width: 100%;
+}
+
+section .container > *{
+    margin: 2rem;
+}
+
+.content{
+    color: #fff;
+    transform: translateY(-50px);
+}
+
+.imgContainer{
+    transform: translateY(50px);
+}
+
+.title{
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    position: relative;
+}
+
+.border{
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+}
+
+.shadow.three{
+    position: absolute;
+    bottom: 100%;
+    height: 300px;
+    width: 100%;
+    left: 0;
+    z-index: 20;
+    background: linear-gradient(to top, #151515, transparent);
+}
+
+.opacity{
+    opacity: 0;
+}
+
+@media (max-width: 850px){
+    section .container{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px){
+    .big-title{
+        font-size: 3rem
+    }
+
+    .text{
+        font-size: .8rem;
+    }
+
+    .title{
+        font-size: 1.2rem;
+    }
+}
+
+/*-----------------------JUDUL-------------------------*/
+.judul {
+  padding: 50px;
+}
+
+.article h1{
+  z-index: 2;
+}
+
+.article p{
+  z-index: 2;
+}
+
+.article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main-konten{
+  display: flex;
+  justify-content: space-around;
+ 
+}
+
+.content-slide{
+  max-width: 500px;
+  z-index: 2;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: 20px;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;  /* Set the width to 100px */
+  height: 600px; /* Set the height to 250px */
+  object-fit: cover;
+  z-index: 2;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/*-----------------FORM----------------------*/
+.main-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  z-index: 2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/*--------avatar-----*/
+.main-caption{
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Susun secara vertikal */
+  align-items: center; /* Pusatkan konten */
+  text-align: center;
+}
+.main-caption article{
+
+white-space: normal;
+width: 400px;
+}
+.avatar{
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+.avatar-logo{
+  border-radius: 50%;
+  
+}
+.avatar-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-info p {
+  margin: 0;
+}
+
+.avatar-info p:first-child {
+  font-weight: bold;
+}
+
+/*----------CAPTION BAWAH--------------*/
+.caption-bawah{
+  padding: 20px;
+  text-align: center;
+}
+
+.caption-bawah article {
+  max-width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.caption-info{
+  padding-left: 15px;
+}
+
+.avatar-caption{
+  display: flex;
+  align-items: center;
+  margin-right: 10px 0;
+}
+.caption-logo img{
+  width: 50px;
+  margin-right: 10px;
+}
+/*---------our packege---------*/
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 20px 0; /* Jarak atas dan bawah */
+}
+
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000; /* Garis horizontal */
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.25em; /* Jarak antara teks dan garis di sebelah kiri */
+}
+
+.divider:not(:empty)::after {
+  margin-left: 0.25em; /* Jarak antara teks dan garis di sebelah kanan */
+}
+
+.divider h1{
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+/*------------main out package---------*/
+.bendera-caption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin: 60px;
+  width: 30%;
+}
+
+.logo-bendera {
+  margin-right: 10px;
+}
+
+.circle-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover; 
+}
+
+.caption-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.caption-info p {
+  margin: 5px ;
+  padding-right: 35px;
+  white-space: normal;
+}
+/*---------------------WISATA-------------------*/
+.main-wisata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.content-wisata {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wisata{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 20px 0;
+}
+/*--------------closing---------------------------*/
+.closing {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  margin: 20px;
+}
+.closing h1 {
+  margin-bottom: 25px; 
+}
+
+.closing p {
+  max-width: 600px; 
+  margin: 0; 
+}
+
+.closing button {
+  background-color: black;
+  color: white; 
+  border: none; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer; 
+  margin: 50px; 
+  transition: background-color 0.3s; 
+  font-size: 1.1rem;
+}
+
+.closing button:hover {
+  background-color: darkgray; /
+}
+/*----------AWAN----------------*/
+
+
+
+.cloud {
+  position: absolute;
+  background-image: url('assets/awan.jpg'); /* Ganti dengan gambar awan */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+
+@keyframes moveCloud {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(100vw); /* Bergerak ke kanan */
+  }
+}
+.moving {
+  animation: moveCloud linear infinite; /* Animasi bergerak */
+}
+
+.background {
+  position: relative;
+  background-color: #87CEEB; 
+  overflow: hidden;
+  height: 100vh; /* Pastikan background memenuhi tinggi layar */
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+      padding: 20px;
+  }
+
+  .main-konten {
+      max-width: 1200px;
+      margin: auto;
+  }
+
+  .mySlides {
+      width: 100%;
+  }
+
+  .prev, .next {
+      font-size: 24px;
+  }
+}
+
+/* Untuk layar tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar {
+      padding: 15px;
+  }
+
+  .main-konten {
+      max-width: 800px;
+      margin: auto;
+  }
+
+  .prev, .next {
+      font-size: 20px;
+  }
+}
+
+/* Untuk layar ponsel */
+@media (max-width: 400px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+  }
+
+  .menu {
+      width: 100%;
+  }
+
+  .mySlides {
+      width: 100%;
+      height: auto; /* Pastikan tinggi otomatis */
+  }
+
+  .prev, .next {
+      font-size: 18px;
+  }
+
+  .shadow {
+      display: none; 
+  }
+  .main-wisata {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .content-wisata {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wisata {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bendera-caption {
+    display: flex;
+    flex-direction: row; /* Ensure the image and text are aligned horizontally within each item */
+    align-items: center;
+    width: 100%; /* Make each item take full width */
+    margin: 10px 0; /* Add space between each item */
+  }
+
+  .logo-bendera {
+    margin-right: 10px;
+  }
+
+  .circle-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .caption-info h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  .caption-info p {
+    margin: 5px;
+    padding-right: 0;
+  }
+  .main-caption {
+    padding: 10px; 
+  }
+  .avatar {
+    flex-direction: column; /* Susun avatar secara vertikal */
+    align-items: center; /* Pusatkan avatar */
+  }
+
+  .avatar-logo img {
+    width: 70px; /* Menyesuaikan ukuran gambar avatar */
+  }
+
+  .avatar-logo{
+    padding: 15px;
+  }
+
+  .caption-bawah {
+    margin: 10px; 
+  }
+
+  .caption-bawah article{
+    padding: 15px;
+  }
+
+  .avatar-caption {
+    flex-direction: column; /* Susun fitur secara vertikal */
+    align-items: center; /* Pusatkan fitur */
+    text-align: center; /* Pusatkan teks */
+  }
+
+  .content-avatar{
+    padding: 15px;
+  }
+  .caption-logo img {
+    width: 40px; /* Menyesuaikan ukuran gambar fitur */
+  }
+
+  .caption-bawah article {
+    font-size: 14px; /* Mengatur ukuran font untuk teks */
+  }
+  .main-caption article p{
+    width: 450px;
+  }
+}

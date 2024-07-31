@@ -1,77 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assigment Revou</title>
-    <link rel="stylesheet" href="css\style.css">
-</head>
-
-<body>
-
- <!----- header ----->
- <div class="top">
-    <div class="container"></div>
-</div>
-
-<!---navigasi------>
-<header>
-   <div class="container"> 
-       
-       <ul>
-           <li class="active"><a href="index.html">HOME</a></li>
-           <li><a href="about.html">ABOUT</a></li>
-           <li><a href="contact.html">CONTACT</a></li>
-       </ul>
-   </div>    
-</header> 
-
-<!----- label ---------->
-<section class="label">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" type= "text/css" href="css\style.css" />
+    
+  </head>
+  <body>
+    <!-------------NAVIGASI------------->
     <div class="container">
-        <p>Home</p>
+      <div class="navbar">
+        <div class="menu">
+          <h3 class="logo">WEBSITE<span id="display-name">Faizz</span></h3>
+          <div class="hamburger-menu">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="main">
+          <header>
+            <h1 class="big-title translate" data-speed="0.1">Welcome to my website</h1>
+            <img src="assets\bg.jpg" class="gambar-langit" >   
+          </header>
+        </div>
+
+        <div class="shadow one"></div>
+        <div class="shadow two"></div>
+      </div>
+
+      <div class="links">
+        <ul>
+          <li>
+            <a href="index.html" style="--i: 0.05s;">Home</a>
+          </li>
+          <li>
+            <a href="about.html" style="--i: 0.1s;">Our Package</a>
+          </li>
+          <li>
+            <a href="portofolio.html" style="--i: 0.15s;">Call Us</a>
+          </li>
+          <li>
+            <a href="picture.html" style="--i: 0.2s;">Picture</a>
+          </li>
+          <li>
+            <a href="job.html" style="--i: 0.25s;">Job</a>
+          </li>
+         
+        </ul>
+      </div>
     </div>
-</section>
+    <!-------------JUDUL---------->
+    <div class="background">
+          <div class="judul">
+            <article class="article">
+              <h1>Your Trusted Travel Agent's</h1>
+              <br>
+              <p style="padding-top: 20px;">Your happiness is our hapiness</p>
+            </article>
+          </div>
+          <!------------MAIN KONTEN------->
+            <div class="main-konten">
+                  <div class="slideshow-container">
+                    <div class="content-slide">
+                      <img class="mySlides" src="assets\wisata-korea.jpg" >
+                      <img class="mySlides" src="assets\wisata-jerman.jpg" >
+                      <img class="mySlides" src="assets\wisata-bali.jpg" >
+                      <img class="mySlides" src="assets\wisata-australia.jpg" >
+                      <img class="mySlides" src="assets\wisata-jepang.jpg" >
+                      <img class="mySlides" src="assets\wisata-singapura.jpg" >
+                  </div>
+                  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+                </div>
 
-<!-----main ----->
-<section>
-    <article class="main-artikel">
-        <header>
-            <h1>You Trusted Travel Agent's</h1>
-        </header>
+              <div class="main-form">
+                <form name="message-form" onsubmit="return validateForm()">
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="fname">Your Name</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="lname">Email Address</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="lname" name="lastname" placeholder="Your Email..">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="phone">No Phone</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" required placeholder="Your phone..">
+                      <small> 10-15 digits</small>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="country">Country</label>
+                    </div>
+                    <div class="col-75">
+                      <select id="country" name="country">
+                        <option value="option">Select Country</option>
+                        <option value="Kamboja">Kamboja</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Filipina">Filipina</option>
+                        <option value="Singapura">Singapura</option>
+                        <option value="Brunei Darussalam">Brunei Darussalam</option>
+                        <option value="Timor Leste">Timor Leste</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="subject">Massage</label>
+                    </div>
+                    <div class="col-75">
+                      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <input type="submit" value="Submit">
+                  </div>
+                </form>
+              </div>
+          </div>
+    </div>
+   
 
-        <p>Your happiness is our hapiness</p>
-    </article>
-</section>
 
-<section class="main-content">
-    <div class="slideshow-container">
+    <!----------ARTIKEL BAWAH---------->
+    <div class="main-caption">
+        <article>
+          <p><em>"Liburan jadi menyenangkan apabila kalian bersama Keluarga"</em></p>
+        </article>
 
-        <div class="mySlides fade">
-          <img src="img\foto1.jpg" >
+        <div class="avatar">
+          <div class="avatar-logo">
+            <img src="assets\foto6.jpg" alt="icon" style="width:90px">
+          </div>  
+          <div class="avatar-info">
+              <p><B>Unknown Name</B></p>
+              <p>Ibu Rumah Tangga, 29</p>
+          </div>
         </div>
-        
-        <div class="mySlides fade">
-          <img src="img\foto2.jpg">
-        </div>
-        
-        <div class="mySlides fade">
-          <img src="img\foto3.jpg" >
-        </div>
-        
-        </div>
-        
-        <div>
-          <span class="dot"></span> 
-          <span class="dot"></span> 
-          <span class="dot"></span> 
-        </div>
+    </div>
 
-    <form action="">
-        <h1>asf</h1>
-    </form>
-</section>
+    <!---------------TEKS BAWAH----------->
+    <div class="caption-bawah">
+      <article >
+        Use This space to provide users with more information about your offer/consider it a follow-up to youe hedaline and explain the benefits of your service or product
+      </article>
+      <div class="content-avatar">
+        <div class="avatar-caption">
+          <div class="caption-logo">
+            <img src="assets\number1.jpg" alt="icon" style="width:50px">
+          </div>  
+          <div class="caption-info">
+              <p>My first feature, written in the form of a benefit statement</p>
+          </div>
+        </div>
+        <div class="avatar-caption">
+          <div class="caption-logo">
+            <img src="assets\number2.jpg" alt="icon" style="width:50px">
+          </div>  
+          <div class="caption-info">
+              <p>My Second Future, When in the form of a benefit statement</p>
+          </div>
+        </div>
+        <div class="avatar-caption">
+          <div class="caption-logo">
+            <img src="assets\number3.jpg" alt="icon" style="width:50px">
+          </div>  
+          <div class="caption-info">
+              <p>My thrird feature written, in the form of a benefit statement</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<script src="js/script.js"></script>
-</body>
+
+    <!---------OUR-PACKAGE----->
+    <div class="divider">
+      <h1>Our Package</h1>
+    </div>
+
+    <!----------WISATA------->
+    <div class="main-wisata">
+      <div class="content-wisata">
+          <div class="wisata">
+            <div class="bendera-caption">
+              <div class="logo-bendera">
+                <img src="assets\flag-korea.jpg" alt="icon" class="circle-image">
+              </div>  
+              <div class="caption-info">
+                <h3>Korea</h3>
+                  <p>Travel dan Wisata Jelajahi berbagai objek wisata dan aktivitas wajib</p>
+              </div>
+            </div>
+            <div class="bendera-caption">
+              <div class="logo-bendera">
+                <img src="assets\flag-indonesia.jpg" alt="icon" class="circle-image">
+              </div>  
+              <div class="caption-info">
+                <h3>Bandung</h3>
+                  <p>Travel dan Wisata di Bandung sangat menarik dan banyak dikunjungi</p>
+              </div>
+            </div>
+            <div class="bendera-caption">
+              <div class="logo-bendera">
+                <img src="assets\flag-singapura.jpg" alt="icon" class="circle-image">
+              </div>  
+              <div class="caption-info">
+                <h3>Singapura</h3>
+                  <p>Travel dan wisata di Siangpura kunjungi patung merlion dan wisata lainnya</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="wisata">
+            <div class="bendera-caption">
+              <div class="logo-bendera">
+                <img src="assets\flag-indonesia.jpg" alt="icon" class="circle-image">
+              </div>  
+              <div class="caption-info">
+                <h3>Bali</h3>
+                  <p>Travel dan Wisata menikmati indahnya pantai dan suasana dipantai</p>
+              </div>
+            </div>
+            <div class="bendera-caption">
+              <div class="logo-bendera">
+                <img src="assets\flag-jepang.jpg" alt="icon" class="circle-image">
+              </div>  
+              <div class="caption-info">
+                <h3>Jepang</h3>
+                  <p>Travel dan wisata di jepang jelajahi Shinjuku Gyoen untuk melihat bunga sakura</p>
+              </div>
+            </div>
+            <div class="bendera-caption">
+              <div class="logo-bendera">
+                <img src="assets\flag-germany.jpg" alt="icon" class="circle-image">
+              </div>  
+              <div class="caption-info">
+                <h3>Germany</h3>
+                  <p>Travel dan wisata di jerman menikmati banyak museum</p>
+              </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+
+    <!----------------CLOSING ARGUMENT---------->
+    <div class="closing">
+      <article>
+        <h1>Your Closing Argument Headline</h1>
+        <p>Suspendise egestas rhoncus urna in bidenbum. Donec unra neque sed justo quis. convalss tindusdunt rusu. Phaselul ferubg idui vel erat figma</p>
+      </article>
+
+      <div>
+        <button>CALL US TO ACTION</button>
+      </div>
+
+    </div>
+
+
+
+ 
+ 
+  
+
+
+    <!-----------FOOTER----------->
+    <footer>
+      <p>Copyright &copy; 2023 - faizzz Website. All Rights Reserved.</p>
+      <nav>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </footer>
+    
+
+    <script src="js\app.js"></script>
+  </body>
 </html>
+
+
+
+
+
+
