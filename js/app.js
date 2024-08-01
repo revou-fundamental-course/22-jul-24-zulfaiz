@@ -1,3 +1,4 @@
+// Untuk Navigasi
 const hamburger_menu = document.querySelector(".hamburger-menu");
 const container = document.querySelector(".container");
 
@@ -5,7 +6,7 @@ hamburger_menu.addEventListener("click", () => {
   container.classList.toggle("active");
 });
 
-
+//  Slideshow Ototmatis
 let slideIndex = 0;
 showSlides(); // Memanggil fungsi untuk menampilkan slide pertama
 
@@ -24,7 +25,7 @@ function showSlides() {
     setTimeout(showSlides, 3000); // Ulangi setiap 3 detik
 }
 
-// Fungsi untuk mengubah slide dengan tombol
+//  slide  tombol
 function changeSlide(n) {
     slideIndex += n;
     const slides = document.getElementsByClassName("mySlides");
@@ -40,7 +41,7 @@ function changeSlide(n) {
 }
 
 
-
+// Membuat Awan
 document.getElementById('fname').addEventListener('input', function() {
   const name = this.value; // Ambil nilai dari input nama
   const displayName = document.getElementById('display-name'); // Ambil elemen span
@@ -49,43 +50,23 @@ document.getElementById('fname').addEventListener('input', function() {
 
 
 
-const cloudImages = [
-  'assets/awan1.jpg',
-  'assets/awan2.jpg',
-  'assets/awan3.jpg',
-  // Tambahkan lebih banyak gambar awan sesuai kebutuhan
-];
-function createCloud() {
-  const cloud = document.createElement('div');
-  cloud.className = 'cloud';
-  
-  // Pilih gambar awan secara acak
-  const randomImage = cloudImages[Math.floor(Math.random() * cloudImages.length)];
-  cloud.style.backgroundImage = `url('${randomImage}')`;
-
-  // Atur lebar dan tinggi awan secara acak
-  const width = Math.random() * 300 + 150 + 'px'; // Lebar acak antara 100px - 300px
-  const height = Math.random() * 200 + 100 + 'px'; // Tinggi acak antara 50px - 150px
-  cloud.style.width = width;
-  cloud.style.height = height;
-
-  // Atur posisi vertikal acak dan mulai dari luar layar
-  cloud.style.position = 'absolute';
-  cloud.style.top = Math.random() * 100 + 'px'; // Posisi vertikal acak
-  cloud.style.left = '-200px'; // Mulai dari luar layar di sebelah kiri
-
-  // Atur kecepatan acak untuk animasi
-  const animationDuration = Math.random() * 10 + 15; // Durasi animasi acak antara 15 detik hingga 25 detik
-  cloud.style.animation = 'moveCloud ' + animationDuration + 's linear forwards'; // Kecepatan acak
-
-  // Tambahkan awan ke dalam elemen latar belakang
-  document.querySelector('.background').appendChild(cloud);
-
-  // Hapus awan setelah animasi selesai untuk menghindari penumpukan
-  cloud.addEventListener('animationend', () => {
-      cloud.remove();
-  });
+// Bagian Form
+function updateDisplayName() {
+  var nameInput = document.getElementById("name").value;
+  var displayName = document.getElementById("display-name");
+  displayName.textContent = nameInput;
 }
 
-// Interval untuk membuat awan baru setiap 2 detik
-setInterval(createCloud, 2000);
+function validateForm() {
+  var name = document.forms["message-form"]["firstname"].value;
+  var email = document.forms["message-form"]["lastname"].value;
+  var phone = document.forms["message-form"]["phone"].value;
+  var travel = document.forms["message-form"]["travel"].value;
+  var subject = document.forms["message-form"]["subject"].value;
+
+  if (name == "" || email == "" || phone == "" || travel == "" || subject == "") {
+      alert("All fields must be filled out");
+      return false;
+  }
+  return true;
+}
