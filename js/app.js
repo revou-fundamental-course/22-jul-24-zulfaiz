@@ -41,32 +41,24 @@ function changeSlide(n) {
 }
 
 
-// Membuat Awan
-document.getElementById('fname').addEventListener('input', function() {
-  const name = this.value; // Ambil nilai dari input nama
-  const displayName = document.getElementById('display-name'); // Ambil elemen span
-  displayName.textContent = name ? name : 'faizz'; // Update isi span sesuai input, jika kosong tampilkan "Guest"
-});
-
-
 
 // Bagian Form
 function updateDisplayName() {
   var nameInput = document.getElementById("name").value;
-  var displayName = document.getElementById("display-name");
-  displayName.textContent = nameInput;
+  var displayName = document.getElementById("name-display"); // Ubah 'display-name' menjadi 'name-display'
+  displayName.textContent = nameInput ? nameInput : ''; // Update hanya jika ada input
 }
 
 function validateForm() {
-  var name = document.forms["message-form"]["firstname"].value;
-  var email = document.forms["message-form"]["lastname"].value;
+  var name = document.forms["message-form"]["name"].value;
+  var email = document.forms["message-form"]["email"].value;
   var phone = document.forms["message-form"]["phone"].value;
   var travel = document.forms["message-form"]["travel"].value;
   var subject = document.forms["message-form"]["subject"].value;
 
   if (name == "" || email == "" || phone == "" || travel == "" || subject == "") {
       alert("All fields must be filled out");
-      return false;
+      return false; // Menolak form jika ada yang kosong
   }
-  return true;
+  return true; // Mengizinkan submit jika semua field terisi
 }

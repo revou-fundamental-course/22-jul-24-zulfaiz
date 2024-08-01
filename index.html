@@ -11,13 +11,14 @@
     <!-------------NAVIGASI------------->
     <div class="container">
       <div class="navbar">
-        <div class="menu">
-          <h3 class="logo">WEBSITE<span id="display-name">Faizz</span></h3>
-          <div class="hamburger-menu">
-            <div class="bar"></div>
+          <div class="menu">
+              <h3 class="logo">WEBSITE <span id="name-display"></span></h3> <!-- ID sesuai -->
+              <div class="hamburger-menu">
+                  <div class="bar"></div>
+              </div>
           </div>
-        </div>
       </div>
+  
 
       <div class="main-container">
         <div class="main">
@@ -71,14 +72,14 @@
                 </div>
 
                 <div class="main-form">
-                  <h1>Selamat datang, silahkan daftar!</h1>
+                  <h1>Welcome, Please Register!</h1>
                   <form name="message-form" onsubmit="return validateForm()">
                       <div class="row">
                           <div class="col-25">
                               <label for="name">Your Name</label>
                           </div>
                           <div class="col-75">
-                              <input type="text" id="name" name="firstname" placeholder="Your name.." oninput="updateDisplayName()">
+                              <input type="text" id="name" name="firstname" required placeholder="Your name.." oninput="updateDisplayName()">
                           </div>
                       </div>
                       <div class="row">
@@ -94,7 +95,7 @@
                               <label for="phone">No Phone</label>
                           </div>
                           <div class="col-75">
-                              <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" required placeholder="Your phone..">
+                              <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" placeholder="Your phone..">
                               <small> 10-15 digits</small>
                           </div>
                       </div>
@@ -104,7 +105,7 @@
                           </div>
                           <div class="col-75">
                               <select id="travel" name="travel">
-                                  <option value="option">Select Place</option>
+                                  <option value="">--Select Place--</option>
                                   <option value="Singapura">Singapura</option>
                                   <option value="London">London</option>
                                   <option value="Jepang">Jepang</option>
@@ -119,7 +120,7 @@
                               <label for="subject">Message</label>
                           </div>
                           <div class="col-75">
-                              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                              <textarea id="subject" name="subject" placeholder="Any Tips?..." style="height:200px"></textarea>
                           </div>
                       </div>
                       <br>
